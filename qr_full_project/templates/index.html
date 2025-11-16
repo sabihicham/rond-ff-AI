@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>QR Scanner & Generator</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="topbar">
+<h1 id="title">ماسح ومولّد QR</h1>
+<select id="langSwitcher">
+  <option value="ar">العربية</option>
+  <option value="en">English</option>
+</select>
+</header>
+
+<main class="container">
+<section class="card">
+  <h2 id="scanCamTitle">المسح عبر الكاميرا</h2>
+  <video id="video" autoplay playsinline></video>
+  <div class="btns">
+    <button id="startCam">تشغيل</button>
+    <button id="stopCam">إيقاف</button>
+    <button id="snapBtn">التقاط</button>
+  </div>
+  <label id="cameraLabel">اختيار الكاميرا:</label>
+  <select id="cameraSelect"></select>
+  <h3 id="resultLabel">النتيجة:</h3>
+  <div id="scanResult" class="result-box">—</div>
+</section>
+
+<section class="card">
+  <h2 id="imgScanTitle">المسح من صورة</h2>
+  <input type="file" id="fileInput" accept="image/*" />
+</section>
+
+<section class="card">
+  <h2 id="qrGenTitle">مولد QR</h2>
+  <textarea id="qrText" placeholder="أدخل النص هنا"></textarea>
+  <button id="genBtn">إنشاء</button>
+  <div id="qrcode"></div>
+  <button id="downloadQr" disabled>تحميل</button>
+</section>
+
+<div class="nav-buttons">
+  <a href="{{ url_for('admin') }}" class="btn-admin">لوحة التحكم</a>
+  <a href="{{ url_for('tool') }}" class="btn-main">أداة QR</a>
+</div>
+
+<script src="https://unpkg.com/qr-scanner@1.4.2/qr-scanner.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+<script>
+document.addEventListener('DOMContentLoaded', initIndexApp);
+</script>
+</body>
+</html>

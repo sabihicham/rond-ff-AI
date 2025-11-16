@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head><meta charset="utf-8" /><title>أداة QR</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
+<body>
+<h1>أداة QR</h1>
+<section>
+<h2>إنشاء QR</h2>
+<input type="text" id="qrInput" placeholder="اكتب نصًا أو رابطًا">
+<button id="generateQR">إنشاء QR</button>
+<div id="qrOutput"></div>
+</section>
+<section>
+<h2>مسح QR (كاميرا)</h2>
+<video id="preview" width="300" height="300"></video>
+<p id="scanResult">—</p>
+</section>
+<script src="https://unpkg.com/qr-scanner@1.4.2/qr-scanner.min.js"></script>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+<script>
+document.addEventListener('DOMContentLoaded', initToolApp);
+</script>
+</body>
+</html>
