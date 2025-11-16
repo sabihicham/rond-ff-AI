@@ -337,8 +337,8 @@ function generateQr(){
   if(!text){ alert('ضع نصاً أو رابط هنا أولاً'); return; }
 
   // إعدادات احترافية: حجم أكبر داخلياً ثم تصغير للمعاينة للحصول على جودة تنزيل أفضل
-  const size = 800; // حجم الكانفس الداخلي لرفع دقة التنزيل
-  const displaySize = 200; // ما يظهر في المعاينة
+  const size = 1000; // حجم الكانفس الداخلي لرفع دقة التنزيل
+  const displaySize = 800; // ما يظهر في المعاينة
   qrSize.textContent = displaySize;
 
   // نستخدم عنصر مؤقت لإنشاء QR بدقة أعلى، ثم نعرض نسخة مصغّرة
@@ -504,3 +504,4 @@ window.addEventListener('beforeunload', async ()=> {
 
 </body>
 </html>
+
